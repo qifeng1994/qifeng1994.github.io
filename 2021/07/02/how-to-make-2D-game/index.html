@@ -14,7 +14,7 @@
 <meta property="og:description" content="2D Movement in Unity&lt;关于2D碰撞的一些优化设置&gt; Rigidbody2D-Collision Detection Discrete  GameObjects with Rigidbody 2Ds and Collider 2Ds can overlap or pass through each other during a physics update  Cont">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-02T14:14:09.000Z">
-<meta property="article:modified_time" content="2021-07-02T15:01:25.186Z">
+<meta property="article:modified_time" content="2021-07-03T12:17:32.220Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -108,7 +108,7 @@
 <li>Friction</li>
 <li>Bounciness</li>
 </ul>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// CharacterController2D.cs</span><br><span class="line"></span><br><span class="line">FixedUpdate()</span><br><span class="line">&#123;</span><br><span class="line">    判断角色是否落地：</span><br><span class="line">    在角色脚下新建一个EmptyObject, 通过Physics2D.OverlapCircleAll方法检测有什么跟角色的脚底发生了碰撞。</span><br><span class="line">    如果发生碰撞的不是gameObject, 那么认定角色在地面上。</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Move()</span><br><span class="line">&#123;</span><br><span class="line">    如果角色在蹲着，判断是否可以站起来：</span><br><span class="line">    </span><br><span class="line">    可以控制player的条件是：player在地面上或者允许player在空中移动</span><br><span class="line">    如果player在蹲着，那么降低移动速度</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Flip()</span><br><span class="line">&#123;</span><br><span class="line">    通过让palyer的localscale的X取负数来实现左右朝向的反转</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
