@@ -71,6 +71,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-DataStructure" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/08/DataStructure/" class="article-date">
+  <time class="dt-published" datetime="2021-07-08T10:12:00.000Z" itemprop="datePublished">2021-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/08/DataStructure/">数据结构与算法笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="数据结构简介"><a href="#数据结构简介" class="headerlink" title="数据结构简介"></a>数据结构简介</h3><p>笔记内容参考leetcode</p>
+<ul>
+<li>数组</li>
+<li>链表</li>
+<li>栈：先入后出的抽象数据结构，可以使用数组或链表实现</li>
+<li>队列：先入先出的抽象数据结构，可以使用链表实现</li>
+<li>树</li>
+<li>图：分为有向图和无向图</li>
+</ul>
+<p>表示图的方法包括：邻接矩阵，邻接表</p>
+<ul>
+<li>散列表：散列表是一种非线性数据结构，通过利用 Hash 函数将指定的「键 key」映射至对应的「值 value」，以实现高效的元素查找。</li>
+<li>堆：堆是一种基于「完全二叉树」的数据结构，可使用数组实现。以堆为原理的排序算法称为「堆排序」，基于堆实现的数据结构为「优先队列」。堆分为「大顶堆」和「小顶堆」，大（小）顶堆：任意节点的值不大于（小于）其父节点的值。</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li>动态规划</li>
+</ul>
+<ol>
+<li>斐波那契数列：递归法，记忆化递归法，动态规划法</li>
+</ol>
+<p>通过让两个整数交替变化</p>
+<ol start="2">
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://qifeng1994.github.io/2021/07/08/DataStructure/" data-id="ckqv38hml0000mswfbugr19u6" data-title="数据结构与算法笔记" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-unity-study-timeline" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/07/02/unity-study-timeline/" class="article-date">
@@ -96,9 +163,12 @@
         <h2 id="2021-06"><a href="#2021-06" class="headerlink" title="2021.06"></a>2021.06</h2><p>3D基础：Roll a Ball (siki学院)</p>
 <p>2D案例：坦克大战 (siki学院)，Ruby’s Adventure(unity官方), Pixel Adventure(像素忍者)</p>
 <h2 id="2021-07-TO-DO"><a href="#2021-07-TO-DO" class="headerlink" title="2021.07 TO DO"></a>2021.07 TO DO</h2><p>How to make a 2D Game (Brackeys)</p>
-<p>C# Intermediate Unity Tutorials (GameDevHQ)</p>
+<p>C# Intermediate Unity Tutorials (GameDevHQ) √</p>
 <p>C# 中级教程 (Unity官方)</p>
 <p>2D Game Kit (Unity Asset Store)</p>
+<p>图解算法数据结构(leetcode)</p>
+<p>初级算法(leetcode)</p>
+<p>先把已知的两个脚本写到一起，再把地面检测修改了，然后整理已经写过的代码，最后再参考别的案例中的写法优化自己的代码</p>
 
       
     </div>
@@ -151,6 +221,7 @@
 <li>Bounciness</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// CharacterController2D.cs</span><br><span class="line"></span><br><span class="line">FixedUpdate()</span><br><span class="line">&#123;</span><br><span class="line">    判断角色是否落地：</span><br><span class="line">    在角色脚下新建一个EmptyObject, 通过Physics2D.OverlapCircleAll方法检测有什么跟角色的脚底发生了碰撞。</span><br><span class="line">    如果发生碰撞的不是gameObject, 那么认定角色在地面上。</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Move()</span><br><span class="line">&#123;</span><br><span class="line">    如果角色在蹲着，判断是否可以站起来：</span><br><span class="line">    </span><br><span class="line">    可以控制player的条件是：player在地面上或者允许player在空中移动</span><br><span class="line">    如果player在蹲着，那么降低移动速度</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Flip()</span><br><span class="line">&#123;</span><br><span class="line">    通过让palyer的localscale的X取负数来实现左右朝向的反转</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
@@ -269,6 +340,8 @@
 <img src="/2021/07/01/C-%E5%9F%BA%E7%A1%80/xyz.PNG" class>
 <ul>
 <li>类<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">//Inventory.cs 一个用于管理item的类</span><br><span class="line">public class Inventory : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //Stuff是Inventory的子类</span><br><span class="line">    public class Stuff</span><br><span class="line">    &#123;</span><br><span class="line">        //子类中的变量</span><br><span class="line">        public int projectileA;</span><br><span class="line">        public int projectileB;</span><br><span class="line">        public int projectileC;</span><br><span class="line">        public float fuel;</span><br><span class="line"></span><br><span class="line">        //构造函数</span><br><span class="line">        public Stuff(int prA, int prB, int prC)</span><br><span class="line">        &#123;</span><br><span class="line">            projectileA = prA;</span><br><span class="line">            projectileB = prB;</span><br><span class="line">            projectileC = prC;</span><br><span class="line">        &#125;</span><br><span class="line">        //构造函数</span><br><span class="line">        public Stuff(int prA, float fu)</span><br><span class="line">        &#123;</span><br><span class="line">            projectileA = prA;</span><br><span class="line">            fuel = fu;</span><br><span class="line">        &#125;</span><br><span class="line">        //使用构造函数创建类的实例</span><br><span class="line">        public Stuff myStuff = new Stuff(1,2,3);</span><br><span class="line">        public Stuff myOtherStuff = new Stuff(1, 5.0);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
 <li>属性</li>
 </ul>
 <p>适用于从类之外的代码访问这个类的成员变量。</p>
@@ -298,6 +371,13 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//SomeOtherClass.cs 用于使用上面创建的泛型方法</span><br><span class="line">public class SomeOtherClass : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        SomeClass myClass = new SomeClass();</span><br><span class="line"></span><br><span class="line">        myClass.GenericMethod&lt;int&gt;(5);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//GenericClass.cs this class uses a generic type of T</span><br><span class="line">public class GenericClass&lt;T&gt;</span><br><span class="line">&#123;</span><br><span class="line">    //类型为T的成员变量</span><br><span class="line">    T item;</span><br><span class="line">    //</span><br><span class="line">    public void UpdateItem(T newItem)</span><br><span class="line">    &#123;</span><br><span class="line">        item = newItem;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//GenericClassExample.cs 实例化上面的类</span><br><span class="line">public class GenericClassExample : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        //为T指定一个类型并实例化</span><br><span class="line">        GenericClass&lt;int&gt; myClass = new GenericClass&lt;int&gt;();</span><br><span class="line">        myClass.UpdateItem(5);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列表</li>
+</ul>
+<p>列表List类似一个动态数组，也是一个泛型类。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//创建一个名为ages的List，当按空格时随机生成一个年龄，当按Q时随机删除一个</span><br><span class="line"></span><br><span class="line">public class ListExample : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    public List&lt;int&gt; ages = new List&lt;int&gt;();</span><br><span class="line"></span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if(Input.GetKeyDown(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            ages.Add(Random.Range(1,100));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if(Input.GetKeyDown(KeyCode.Q))</span><br><span class="line">        &#123;</span><br><span class="line">            ages.Remove(Random.Range(1,ages.Count));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>继承(inheritance)</li>
 </ul>
@@ -340,11 +420,30 @@
 </ul>
 <p>用于调试程序 Debug.Log( );</p>
 <p>绘制项目中的对象 OnDrawGizmos() {定义颜色和要绘制的对象}</p>
+<p>测试游戏运行时的性能影响 profiler工具</p>
 <ul>
-<li><p>代码规范</p>
-</li>
-<li><p>相关频道推荐</p>
-</li>
+<li>代码规范</li>
+<li>Uinty Documentation Scipting API</li>
+</ul>
+<p>如何查看官方文档，这里以GameObject为例：</p>
+<p>Inherits from:Object (继承自Object)</p>
+<p>Description:Base class for all entities in Unity Scenes.</p>
+<p>Properties:</p>
+<p>transform:(通过gameObject.transform来访问，并能看到这属性是只读的。这里的gameObject相当于是GameObject的一个实例。或者直接用transform来访问。区别是什么不知道)</p>
+<p>Public Methods:</p>
+<p>SetActive:(通过gameObject.SetActive()来调用这个方法)</p>
+<p>Static Methods:</p>
+<p>Find:(通过GameObject.Find()来调用这个方法)</p>
+<p>Inherited Members 继承自Object的一些东西</p>
+<p>Properties:</p>
+<p>name:(通过gameObject.name或者name来访问)</p>
+<p>Public Methods:</p>
+<p>ToString:(通过gameObject.ToString()或者ToString()来调用方法)</p>
+<p>Static Methods:</p>
+<p>Destory:(通过Destroy()或者Object.Destroy()或者GameObject.Destroy()来调用方法。)</p>
+<p>总结：对于Properties和Public Methods，先实例化类，再通过实例去调用和访问。对于Static Methods无须实例化，因此可以以类的名字.方法名字去调用。</p>
+<ul>
+<li>相关频道推荐</li>
 </ul>
 <p>Brackeys:</p>
 <p>GameDevHQ/Jonathan: C#初中高级教程</p>
@@ -574,48 +673,6 @@
 
 
   
-    <article id="post-markdown的语法使用的一些注意点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/06/02/markdown%E7%9A%84%E8%AF%AD%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E7%82%B9/" class="article-date">
-  <time class="dt-published" datetime="2021-06-02T02:59:09.000Z" itemprop="datePublished">2021-06-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/06/02/markdown%E7%9A%84%E8%AF%AD%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E7%82%B9/">markdown的语法使用的一些注意点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>关于插入代码，其中一种方法是<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```(用的是什么编程语言，可写可不写)</span><br><span class="line">代码正文</span><br><span class="line">```三个点结束，后面不能加空格，否则在浏览器上显示的时候会和后面的格式冲突</span><br></pre></td></tr></table></figure></li>
-<li></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://qifeng1994.github.io/2021/06/02/markdown%E7%9A%84%E8%AF%AD%E6%B3%95%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E7%82%B9/" data-id="ckq944f000003m0wf7fbd7fs8" data-title="markdown的语法使用的一些注意点" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -652,6 +709,10 @@
       <ul>
         
           <li>
+            <a href="/2021/07/08/DataStructure/">数据结构与算法笔记</a>
+          </li>
+        
+          <li>
             <a href="/2021/07/02/unity-study-timeline/">Unity_Timeline</a>
           </li>
         
@@ -665,10 +726,6 @@
         
           <li>
             <a href="/2021/07/01/C-%E5%9F%BA%E7%A1%80/">C#基礎</a>
-          </li>
-        
-          <li>
-            <a href="/2021/06/19/latex%E5%86%99%E8%AE%BA%E6%96%87%E6%97%B6%E7%9A%84%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/">latex写论文时的技巧总结</a>
           </li>
         
       </ul>
