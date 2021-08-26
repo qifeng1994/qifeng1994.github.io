@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>数据结构与算法笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数据结构简介笔记内容参考leetcode  数组 链表 栈：先入后出的抽象数据结构，可以使用数组或链表实现 队列：先入先出的抽象数据结构，可以使用链表实现 树 图：分为有向图和无向图  表示图的方法包括：邻接矩阵，邻接表  散列表：散列表是一种非线性数据结构，通过利用 Hash 函数将指定的「键 key」映射至对应的「值 value」，以实现高效的元素查找。 堆：堆是一种基于「完全二叉树」的数据结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法笔记">
+<meta property="og:url" content="https://qifeng1994.github.io/2021/07/08/DataStructure/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据结构简介笔记内容参考leetcode  数组 链表 栈：先入后出的抽象数据结构，可以使用数组或链表实现 队列：先入先出的抽象数据结构，可以使用链表实现 树 图：分为有向图和无向图  表示图的方法包括：邻接矩阵，邻接表  散列表：散列表是一种非线性数据结构，通过利用 Hash 函数将指定的「键 key」映射至对应的「值 value」，以实现高效的元素查找。 堆：堆是一种基于「完全二叉树」的数据结">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-08T10:12:00.000Z">
+<meta property="article:modified_time" content="2021-07-08T12:45:06.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://qifeng1994.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-DataStructure" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/08/DataStructure/" class="article-date">
+  <time class="dt-published" datetime="2021-07-08T10:12:00.000Z" itemprop="datePublished">2021-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      数据结构与算法笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="数据结构简介"><a href="#数据结构简介" class="headerlink" title="数据结构简介"></a>数据结构简介</h3><p>笔记内容参考leetcode</p>
+<ul>
+<li>数组</li>
+<li>链表</li>
+<li>栈：先入后出的抽象数据结构，可以使用数组或链表实现</li>
+<li>队列：先入先出的抽象数据结构，可以使用链表实现</li>
+<li>树</li>
+<li>图：分为有向图和无向图</li>
+</ul>
+<p>表示图的方法包括：邻接矩阵，邻接表</p>
+<ul>
+<li>散列表：散列表是一种非线性数据结构，通过利用 Hash 函数将指定的「键 key」映射至对应的「值 value」，以实现高效的元素查找。</li>
+<li>堆：堆是一种基于「完全二叉树」的数据结构，可使用数组实现。以堆为原理的排序算法称为「堆排序」，基于堆实现的数据结构为「优先队列」。堆分为「大顶堆」和「小顶堆」，大（小）顶堆：任意节点的值不大于（小于）其父节点的值。</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li>动态规划</li>
+</ul>
+<ol>
+<li>斐波那契数列：递归法，记忆化递归法，动态规划法</li>
+</ol>
+<p>通过让两个整数交替变化</p>
+<ol start="2">
+<li></li>
+</ol>
+<ul>
+<li>未解决的问题</li>
+</ul>
+<ol>
+<li>断点调试程序的方法</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://qifeng1994.github.io/2021/07/08/DataStructure/" data-id="cksswjjrl0000ggw813350rdb" data-title="数据结构与算法笔记" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/08/03/happy-things/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          happy things
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/02/unity-study-timeline/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Unity_Timeline</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/08/26/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/26/%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">用hexo搭建个人博客的过程记录</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/03/happy-things/">happy things</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/08/DataStructure/">数据结构与算法笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/02/unity-study-timeline/">Unity_Timeline</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
