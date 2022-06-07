@@ -2,43 +2,43 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Hexo"><meta property="og:url" content="https://qifeng1994.github.io/"><meta property="og:site_name" content="Hexo"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://qifeng1994.github.io/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://qifeng1994.github.io"},"headline":"Hexo","image":["https://qifeng1994.github.io/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://qifeng1994.github.io/img/logo.svg"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-07T11:07:26.000Z" title="2022/6/7 下午8:07:26">2022-06-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-07T11:43:47.201Z" title="2022/6/7 下午8:43:47">2022-06-07</time></span><span class="level-item">a minute read (About 118 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/07/cpp/">cpp</a></h1><div class="content"><h3 id="CPP相关"><a href="#CPP相关" class="headerlink" title="CPP相关"></a>CPP相关</h3><h4 id="Blueprint-with-C"><a href="#Blueprint-with-C" class="headerlink" title="Blueprint with C++"></a>Blueprint with C++</h4><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><h4 id="vector-source-code"><a href="#vector-source-code" class="headerlink" title="vector source code"></a>vector source code</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MSVC\14.29\include\vector</span></span><br><span class="line"><span class="keyword">namespace</span> std</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// CLASS TEMPLATE _Vector_const_iterator</span></span><br><span class="line">	<span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">_Myvec</span>&gt;</span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">_Vector_const_iterator</span></span><br><span class="line">    &#123;<span class="comment">//这里面写了很多迭代器操作符的重载&#125;;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// CLASS TEMPLATE _Vector_iterator</span></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">_Myvec</span>&gt;</span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">_Vector_iterator</span> : <span class="keyword">public</span> _Vector_const_iterator&lt;_Myvec&gt;&#123;&#125;；</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// CLASS TEMPLATE _Vector_val</span></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">_Val_types</span>&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">_Vector_val</span>&#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// CLASS TEMPLATE vector</span></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">_Ty</span>, <span class="keyword">class</span> <span class="title class_">_Alloc</span> = allocator&lt;_Ty&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> vector</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//构造函数</span></span><br><span class="line">        <span class="comment">//成员函数 push_back,insert,assign,resize...</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">_Ret</span>&gt;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">_Vbase_compare_three_way</span>&#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// CLASS TEMPLATE _Vb_val</span></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">_Alloc</span>&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">_Vb_val</span>&#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// CLASS vector&lt;bool&gt;</span></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">_Alloc</span>&gt; : <span class="keyword">public</span> _Vb_val&lt;_Alloc&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">vector</span>&lt;<span class="type">bool</span>, _Alloc&gt;&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>插入图片测试</p>
-<p><img src="/.io//06/07/cpp/cat.jpg"></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-07T10:35:25.000Z" title="2022/6/7 下午7:35:25">2022-06-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-07T11:10:07.505Z" title="2022/6/7 下午8:10:07">2022-06-07</time></span><span class="level-item">an hour read (About 7878 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/07/unreal-dev/">unreal dev</a></h1><div class="content"><h3 id="我的第一个游戏开发日志"><a href="#我的第一个游戏开发日志" class="headerlink" title="我的第一个游戏开发日志"></a>我的第一个游戏开发日志</h3><h4 id="2022-x2F-04-x2F-04"><a href="#2022-x2F-04-x2F-04" class="headerlink" title="2022&#x2F;04&#x2F;04"></a>2022&#x2F;04&#x2F;04</h4><p>制作第一个关卡：一个房间，包括一个落地窗，床，桌子，卫生间，门，如果可以的话加上一个窗帘</p>
+<p><img src="/2022/06/07/cpp/cat.jpg"></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-07T10:35:25.000Z" title="2022/6/7 下午7:35:25">2022-06-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-07T12:00:37.609Z" title="2022/6/7 下午9:00:37">2022-06-07</time></span><span class="level-item">an hour read (About 7632 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/07/unreal-dev/">unreal dev</a></h1><div class="content"><h3 id="我的第一个游戏开发日志"><a href="#我的第一个游戏开发日志" class="headerlink" title="我的第一个游戏开发日志"></a>我的第一个游戏开发日志</h3><h4 id="2022-x2F-04-x2F-04"><a href="#2022-x2F-04-x2F-04" class="headerlink" title="2022&#x2F;04&#x2F;04"></a>2022&#x2F;04&#x2F;04</h4><p>制作第一个关卡：一个房间，包括一个落地窗，床，桌子，卫生间，门，如果可以的话加上一个窗帘</p>
 <p>首先复习一下LightingShadow这个快速指南。然后用BSP Brash绘制房间的边界，再加入家具(需要参考油管bsp to mesh的视频)</p>
 <h4 id="2022-x2F-04-x2F-06"><a href="#2022-x2F-04-x2F-06" class="headerlink" title="2022&#x2F;04&#x2F;06"></a>2022&#x2F;04&#x2F;06</h4><p>重新建了一个level1，这次直接用mesh来搭房子，门框和窗户框是通过BSP brush来做的，因为需要剔除门的空间。然后把brush生成mesh，再添加材质。</p>
 <p>测试遇到的问题</p>
 <ol>
 <li><p>从brush生成的mesh不受光照影响，也就是说材质没有被反射，玩家视角看到的是黑色的。</p>
 <p>需要做的改动如图，光照贴图分辨率参考其他的墙mesh设置为128，光照贴图坐标索引设为1。</p>
-<p><img src="/.io//Markdown\images\devlog001.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/devlog001.PNG"> </p>
 </li>
 <li><p>当前的mesh默认是没有碰撞的，也就是说玩家会穿墙，对于窗户框来说，添加盒体简化碰撞(当前不希望玩家能穿过窗户)，而对于门框来说，可以通过添加凸包碰撞来自动设置，但是精度有限。</p>
 <p>通过添加盒体碰撞然后自定义范围来规划碰撞体积。效果如图</p>
-<p><img src="/.io//Markdown\images\devlog002.PNG"></p>
+<p><img src="/2022/06/07/unreal-dev/devlog002.PNG"></p>
 </li>
 </ol>
 <h4 id="2022-x2F-04-x2F-07"><a href="#2022-x2F-04-x2F-07" class="headerlink" title="2022&#x2F;04&#x2F;07"></a>2022&#x2F;04&#x2F;07</h4><p>今天想做游戏的开头，玩家躺在床上的视角，遇到了问题。</p>
 <p>先把玩家放在床上</p>
-<p><img src="/.io//Markdown\images\devlog003.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/devlog003.PNG"> </p>
 <p>然后简化了床的碰撞盒</p>
-<p><img src="/.io//Markdown\images\devlog004.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/devlog004.PNG"> </p>
 <p>但是游戏运行的时候，玩家无法躺在床上</p>
-<p><img src="/.io//Markdown\images\devlog005.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/devlog005.PNG"> </p>
 <p>但是如果勾选胶囊物理效果就可以躺下</p>
-<p><img src="/.io//Markdown\images\devlog006.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/devlog006.PNG"> </p>
 <p>或者把胶囊碰撞体缩小</p>
-<p><img src="/.io//Markdown\images\devlog007.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/devlog007.PNG"> </p>
 <p>还有一种我觉得比较好的解决方法是把默认的胶囊缩小，然后再新建一个和人等大的胶囊</p>
-<p><img src="/.io//Markdown\images\devlog008.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/devlog008.PNG"> </p>
 <p>之所以要重新添加一个胶囊是因为我怀疑原来的胶囊碰撞体根本无法旋转</p>
 <p>还有一个原因我觉得是本身这个场景就不应该用character而是应该用pawn</p>
 <p>今天还看了官方的<a target="_blank" rel="noopener" href="https://youtu.be/rMolbbWOlEs">第三人称教程</a> 到12P，还有几个设置没太搞懂，先截图记录下来。均取自character蓝图类。</p>
 <ol>
 <li><p>类默认设置–Pawn–使用控制器旋转Yaw</p>
-<p><img src="/.io//Markdown\images\devlog009.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/devlog009.PNG"> </p>
 </li>
 <li><p>移动组件–角色移动(旋转设置)–使用控制器所需的旋转&#x2F;将旋转朝向运动</p>
-<p><img src="/.io//Markdown\images\devlog010.PNG"></p>
+<p><img src="/2022/06/07/unreal-dev/devlog010.PNG"></p>
 </li>
 </ol>
 <h4 id="2022-x2F-04-x2F-08"><a href="#2022-x2F-04-x2F-08" class="headerlink" title="2022&#x2F;04&#x2F;08"></a>2022&#x2F;04&#x2F;08</h4><p>明天计划先把第三方教程过一遍，然后找mixamo导入unreal和动画相关的教程，第一场景新建一个pawn类来做。</p>
@@ -46,10 +46,10 @@
 <h4 id="2022-x2F-04-x2F-09"><a href="#2022-x2F-04-x2F-09" class="headerlink" title="2022&#x2F;04&#x2F;09"></a>2022&#x2F;04&#x2F;09</h4><p>计划看官方骨骼的视频，然后学习蒙皮权重相关的知识。</p>
 <h4 id="2022-x2F-04-x2F-10"><a href="#2022-x2F-04-x2F-10" class="headerlink" title="2022&#x2F;04&#x2F;10"></a>2022&#x2F;04&#x2F;10</h4><h4 id="2022-x2F-04-x2F-11"><a href="#2022-x2F-04-x2F-11" class="headerlink" title="2022&#x2F;04&#x2F;11"></a>2022&#x2F;04&#x2F;11</h4><p>游戏内摄像机的切换方法 </p>
 <p>案例参考<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/zh-CN/InteractiveExperiences/UsingCameras/">官方文档</a> ，思路类似actor之间的通信，把Character蓝图的PlayerController组件里的的相机做替换。</p>
-<p><img src="/.io//Markdown\images\Camera002.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Camera002.PNG"> </p>
 <h4 id="2022-x2F-04-x2F-12"><a href="#2022-x2F-04-x2F-12" class="headerlink" title="2022&#x2F;04&#x2F;12"></a>2022&#x2F;04&#x2F;12</h4><p>限制摄像机转动角度的方法，关键词 camera rotation limit</p>
 <p>油管教程就不贴了，后来看到了一个比较简单的方法</p>
-<p><img src="/.io//Markdown\images\Camera001.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Camera001.PNG"> </p>
 <p>虽然不清楚对后续开发是否有影响，反正目前想要达成的目的算是实现了。没想到还有这么简单的方法。</p>
 <p>dialog</p>
 <hr>
@@ -57,7 +57,7 @@
 <li>UE4的第一人称模板中，player是由手臂和枪组成的，与相机绑定。</li>
 </ul>
 <p>在相机的细节中勾选<strong>使用Pawn控制旋转</strong> </p>
-<p><img src="/.io//Markdown\images\FirstPersonCamera001.PNG" alt="FirstPersonCamera001"> <img src="/.io//Markdown\images\FirstPersonCamera002.PNG" alt="FirstPersonCamera002"></p>
+<p><img src="/2022/06/07/unreal-dev/FirstPersonCamera001.PNG" alt="FirstPersonCamera001"> <img src="/2022/06/07/unreal-dev/FirstPersonCamera002.PNG" alt="FirstPersonCamera002"></p>
 <p>这种相机设置的效果就是相机始终和枪口在一个方向。</p>
 <p>但是像吃鸡这样的第一人称游戏中，低头会看到玩家自己的躯干。</p>
 <p>为了实现这样的效果，可以修改第三人称模板来实现。</p>
@@ -67,26 +67,26 @@
 </ul>
 <p>同样在相机的细节中勾选了<strong>使用Pawn控制旋转</strong> 。</p>
 <p>相机的修改如下：删除弹簧臂，然后把相机挂载在mesh下面。在插槽中选择head，然后调整相机的transform。可以修改FOV，把相机下移到胸口附近，这样可以在低头时看到手。</p>
-<p><img src="/.io//Markdown\images\ThirdPersonCamera001.PNG"> <img src="/.io//Markdown\images\ThirdPersonCamera002.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ThirdPersonCamera001.PNG"> <img src="/2022/06/07/unreal-dev/ThirdPersonCamera002.PNG"> </p>
 <p>然后在相机的设置中勾选<strong>使用Pawn控制旋转</strong>，勾选后表示可以通过鼠标来旋转相机，但是会出现旋转过头的现象，玩家的头是无法旋转360度的。</p>
 <p>造成这种问题的原因可以理解为相机在旋转的时候，玩家并没有旋转，如果玩家可以跟着旋转的话，相机的角度就不会过大了。</p>
-<p><img src="/.io//Markdown\images\ThirdPersonCamera004.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ThirdPersonCamera004.PNG"> </p>
 <p>在最上一层的actor设置中勾选<strong>使用控制器旋转Yaw</strong></p>
-<p><img src="/.io//Markdown\images\ThirdPersonCamera005.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ThirdPersonCamera005.PNG"> </p>
 <p>最后游戏中低头的效果，目前稍微有点穿模。</p>
-<p><img src="/.io//Markdown\images\ThirdPersonCamera003.PNG"></p>
+<p><img src="/2022/06/07/unreal-dev/ThirdPersonCamera003.PNG"></p>
 <hr>
 <h4 id="坐标系相关的总结"><a href="#坐标系相关的总结" class="headerlink" title="坐标系相关的总结"></a>坐标系相关的总结</h4><p>直接说结论，坐标系的方向遵循笛卡尔左手坐标系。</p>
-<p>首先这是UE4空白项目的世界坐标系 <img src="/.io//Markdown\images\XYZ001.PNG"> </p>
+<p>首先这是UE4空白项目的世界坐标系 <img src="/2022/06/07/unreal-dev/XYZ001.PNG"> </p>
 <blockquote>
 <p>在维基百科中，笛卡尔坐标系分为左手和右手两种</p>
 </blockquote>
 <blockquote>
-<p><img src="/.io//Markdown\images\XYZ002.PNG"><img src="/.io//Markdown\images\XYZ003.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/XYZ002.PNG"><img src="/2022/06/07/unreal-dev/XYZ003.PNG"> </p>
 </blockquote>
 <p>由图可知UE4是遵循左手坐标系，而XYZ的顺序也是按照自然法则的顺序来命名的。</p>
 <p>最后是关于旋转的定义，三个轴的旋转对应飞机的航偏轴，直接上图</p>
-<p><img src="/.io//Markdown\images\XYZ004.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/XYZ004.PNG"> </p>
 <p>唯一需要记忆的是XYZ对应的旋转顺序是Roll Pitch Yaw</p>
 <table>
 <thead>
@@ -115,9 +115,9 @@
 <hr>
 <h4 id="关于蓝图的迁移"><a href="#关于蓝图的迁移" class="headerlink" title="关于蓝图的迁移"></a>关于蓝图的迁移</h4><p>记录蓝图迁移的方法是因为考虑到以后会经常性的把其他项目的蓝图整合到自己的游戏里面。如果能够顺利迁移的话可以提高开发的效率。</p>
 <p>这次迁移的案例是把第三人称模板里的角色蓝图迁移到一个新的空白项目中。</p>
-<p><img src="/.io//Markdown\images\Migrate001.PNG">  这个蓝图的父类是character，蓝图中使用了UE自带的mesh人物，绑定了默认的动画，定义了基本的移动。</p>
+<p><img src="/2022/06/07/unreal-dev/Migrate001.PNG">  这个蓝图的父类是character，蓝图中使用了UE自带的mesh人物，绑定了默认的动画，定义了基本的移动。</p>
 <p>从迁移的内容中可以看到相互绑定的关系。(所以在资源迁移的时候并不是单单的把这一个蓝图文件拷贝过去)</p>
-<p><img src="/.io//Markdown\images\Migrate002.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Migrate002.PNG"> </p>
 <p>可以看到实际迁移的资产包括动画，材质，纹理，男女两个mesh，和最开始介绍的蓝图 (如果迁移的是同名游戏模式，则蓝图的最下面还包括了游戏模式蓝图)</p>
 <p>把这些内容迁移到一个新建的空白项目中，需要迁移到content&#x2F; 的目录下</p>
 <p>把蓝图拖到游戏场景中发现并不能像第三人称模板一样运行，接下来设置其他的地方</p>
@@ -129,8 +129,8 @@
 <li><p>在项目设置–地图和模式–默认游戏模式 改为刚才新建的名字</p>
 </li>
 <li><p>在项目设置–引擎–输入 中导入第三人称模板的配置文件</p>
-<p><img src="/.io//Markdown\images\Migrate003.PNG"> </p>
-<p><img src="/.io//Markdown\images\Migrate004.PNG"></p>
+<p><img src="/2022/06/07/unreal-dev/Migrate003.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Migrate004.PNG"></p>
 </li>
 </ul>
 <p>回到游戏中可以发现角色被完整的移植了过来</p>
@@ -140,25 +140,25 @@
 <ol>
 <li><p>直接通信</p>
 <p>在玩家蓝图中新建一个公开变量，变量类型是灯的蓝图类，通过直接访问灯的组件来控制的亮灭</p>
-<p><img src="/.io//Markdown\images\ActorCommunication001.PNG"> <img src="/.io//Markdown\images\ActorCommunication002.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication001.PNG"> <img src="/2022/06/07/unreal-dev/ActorCommunication002.PNG"> </p>
 <p>这种方法最后需要在游戏场景中的玩家设置中指定lamp reference是谁，这里指定的是一个实例。</p>
-<p><img src="/.io//Markdown\images\ActorCommunication003.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication003.PNG"> </p>
 </li>
 <li><p>类型转换</p>
 <p>用cast to来判断是否是目标actor，这个案例中玩家靠近灯后灯会灭，远离后灯会亮。</p>
 <p>给玩家添加一个球形碰撞检测，分别在重叠和离开的时候设置灯的亮灭。</p>
-<p><img src="/.io//Markdown\images\ActorCommunication004.PNG"></p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication004.PNG"></p>
 <p>图中的两个事件是右键Sphere选择的，这种方法相比第一种不需要特殊指定，也就是说在地图里放很多Blueprint Ceiling Light都可以与之互动。</p>
-<p><img src="/.io//Markdown\images\ActorCommunication005.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication005.PNG"> </p>
 </li>
 <li><p>接口</p>
 <p>这个案例中，玩家靠近灯时灯灭，远离时灯亮。通过接口实现的好处就是接口可以重用，其他的类也可以使用接口，只不过实现的具体方法不同。</p>
 <p>首先新建一个蓝图接口，在接口中定义Turn On和Turn Off两个函数。</p>
 <p>玩家与actor重叠时调用接口。</p>
-<p><img src="/.io//Markdown\images\ActorCommunication006.PNG"> </p>
-<p>在灯的蓝图中先勾选实现接口 <img src="/.io//Markdown\images\ActorCommunication007.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication006.PNG"> </p>
+<p>在灯的蓝图中先勾选实现接口 <img src="/2022/06/07/unreal-dev/ActorCommunication007.PNG"> </p>
 <p>然后实现接口中的函数</p>
-<p><img src="/.io//Markdown\images\ActorCommunication008.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication008.PNG"> </p>
 </li>
 <li><p>事件分发器</p>
 <p>在这个案例中，玩家每当靠近或远离灯时，不仅会让灯亮灭，还会让触发一个爆炸特效。</p>
@@ -170,10 +170,10 @@
 <li>订阅了这个频道的观众会受到新视频的通知</li>
 </ol>
 <p>为了方便把玩家当作是视频频道，而玩家每次与灯触发的事件视作发布一个新的视频，即第一步和第三步</p>
-<p><img src="/.io//Markdown\images\ActorCommunication009.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication009.PNG"> </p>
 <p>灯和爆炸特效为了订阅这个频道需要创建一个玩家类的公开变量，这里就叫做Subscribe。对应第二步和第四步。</p>
-<p><img src="/.io//Markdown\images\ActorCommunication010.PNG"> </p>
-<p><img src="/.io//Markdown\images\ActorCommunication011.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication010.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication011.PNG"> </p>
 <p><strong>通过C++实现Actor通信</strong></p>
 <ol>
 <li>直接通信</li>
@@ -195,7 +195,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Character.cpp</span></span><br><span class="line">ACharacter::<span class="built_in">SetupPlayerInputComponent</span>(<span class="keyword">class</span> UInputComponent* PlayerInputComponent)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    PlayerInputComponent-&gt;<span class="built_in">BindAction</span>(<span class="string">&quot;Use&quot;</span>, IE_Pressed, <span class="keyword">this</span>, &amp;ACharacter::ToggleCeilingLight); <span class="comment">//当按键时调用开关函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>目前已经在玩家的类中继承了一个灯的类，如果想通过按键实现让灯亮灭还要指定这个灯（对象）是谁</p>
-<p><img src="/.io//Markdown\images\ActorCommunication012.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication012.PNG"> </p>
 <ol start="2">
 <li>类型转换</li>
 </ol>
@@ -242,7 +242,7 @@
 <ol>
 <li>案例：玩家靠近碰撞盒后灯亮</li>
 </ol>
-<p><img src="/.io//Markdown\images\ActorCommunication013.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ActorCommunication013.PNG"> </p>
 <ol start="2">
 <li></li>
 </ol>
@@ -251,9 +251,9 @@
 <hr>
 <h4 id="制作UE插件的方法"><a href="#制作UE插件的方法" class="headerlink" title="制作UE插件的方法"></a>制作UE插件的方法</h4><hr>
 <h4 id="使用BSP-Brush的心得"><a href="#使用BSP-Brush的心得" class="headerlink" title="使用BSP Brush的心得"></a>使用BSP Brush的心得</h4><p>首先关于Brush是干什么的？</p>
-<p><img src="/.io//Markdown\images\BSP001.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/BSP001.PNG"> </p>
 <p>上图是从BSP生成的mesh，从左到右依次是默认的cube，将笔刷的长度缩小一倍，将Transform缩小一倍而生成的，但是在引用相同的材质时可以看到，通过Transform缩小一倍的mesh材质也被压缩了。</p>
-<p><img src="/.io//Markdown\images\BSP002.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/BSP002.PNG"> </p>
 <p>而把mesh做替换后，生成的大小是一样的。也就是说mesh是不受影响的。</p>
 <p>由此可以联想到在做建筑物的建模时，</p>
 <p>如果首先通过放大笔刷来构图(全部基于1立方的cube)，那么接下来在同位置替换mesh的时候与构图定义的尺寸没有直接关系</p>
@@ -276,7 +276,7 @@
 <p>目标是让Mixamo上的character能替换到第三人称模板的小白人上去，然后给他添加动画(这个动画最好是能兼容Mixamo上的动画和EPIC商城的动画)</p>
 <ol>
 <li><p>直接把character (FBX)导入UE项目中，如果在导入选项中指定UE默认的骨骼，后面可能会有问题，如果不指定的话会自己生成一个新的骨骼。FBX会被拆分，主要是图中的四大项</p>
-<p><img src="/.io//Markdown\images\Mixamo001.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo001.PNG"> </p>
 <p>这样虽然可以成功导入，但是如果想继续给添加动画的话，感觉无法和UE默认的资源兼容，因此还需要继续从Mixamo上下载相匹配的动画。我觉得这样有可能会无法和虚幻商城的动画包相匹配。</p>
 </li>
 <li><p>直接把animation导入UE项目中，这样做的初衷是想给UE添加新的动画，我在网上发现了一个转换工具 <a target="_blank" rel="noopener" href="https://terribilisstudio.fr/?section=products">Mixamo Converter</a> ，这个软件的原理是预先准备了一个能和Mixamo上的character相匹配的UE模型，然后传上去，再下载想要的animation，然后把animation在软件中转化一下就可以顺利导入到UE中，导入后的动画用的是还是原来小白人的骨骼和mesh。</p>
@@ -284,45 +284,45 @@
 </li>
 <li><p>利用 <a target="_blank" rel="noopener" href="https://youtu.be/92rag3qStI4">骨骼重定向</a> 的方法，可以实现1：把新的角色和动画导入 2：把新的动画匹配到UE的小人上。</p>
 <p>重定向的具体设置：</p>
-<p><img src="/.io//Markdown\images\Mixamo002.jpeg"> </p>
-<p><img src="/.io//Markdown\images\Mixamo003.jpeg"></p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo002.jpeg"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo003.jpeg"></p>
 <p> 导入后角色的头发不能正常显示，修改材质</p>
-<p><img src="/.io//Markdown\images\Mixamo018.PNG"> </p>
-<p><img src="/.io//Markdown\images\Mixamo019.PNG"></p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo018.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo019.PNG"></p>
 </li>
 </ol>
 <h4 id="总结一下目前用到的几个角色资源包"><a href="#总结一下目前用到的几个角色资源包" class="headerlink" title="总结一下目前用到的几个角色资源包"></a>总结一下目前用到的几个角色资源包</h4><ol>
 <li><p>AnimStarterPack 官方的动画包</p>
-<p><img src="/.io//Markdown\images\Mixamo004.PNG"></p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo004.PNG"></p>
 </li>
 </ol>
 <p>​	导入后包括动画和mesh和骨骼，mesh和骨骼跟默认的小白人一样，但是如果想把动画添加到第三人称模板上，不能直接引用，可以通过先导出FBX再导入，导入的时候绑定到第三人称模板的骨骼上就可以使用了。</p>
 <ol start="2">
 <li><p>Scanned3DPeoplePack 商店免费资源</p>
-<p><img src="/.io//Markdown\images\Mixamo005.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo005.PNG"> </p>
 <p>实际能操控的mesh有6个，骨骼跟小白人一样，但是想把现成的mesh替换掉模板的小白人实现小白人的移动动画是不行的，因为绑定的骨骼路径不同。因此需要更改绑定。</p>
-<p><img src="/.io//Markdown\images\Mixamo006.PNG"> 以这个mesh为例，右键，骨骼–指定骨骼，然后选择模板的骨骼</p>
-<p><img src="/.io//Markdown\images\Mixamo007.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo006.PNG"> 以这个mesh为例，右键，骨骼–指定骨骼，然后选择模板的骨骼</p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo007.PNG"> </p>
 <p>可以看到正因为mesh的骨骼是一样的，所以可以直接替换绑定</p>
 <p>来到ThirdPersonCharacter蓝图，替换mesh</p>
-<p><img src="/.io//Markdown\images\Mixamo008.PNG">  <img src="/.io//Markdown\images\Mixamo009.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo008.PNG">  <img src="/2022/06/07/unreal-dev/Mixamo009.PNG"> </p>
 <p>可以看到替换完的mesh还可以使用模板的动画，算是完美兼容。而没有绑定新骨骼的男性mesh只能显示出T型模型，并不会使用动画。</p>
 </li>
 <li><p>BattleWizardPolyart 商城免费资源</p>
-<p><img src="/.io//Markdown\images\Mixamo012.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo012.PNG"> </p>
 <p>骨骼与默认的小白人相比有拓展。</p>
 <p>如果想把套在小白人上，方法同2，但是需要注意</p>
-<p><img src="/.io//Markdown\images\Mixamo010.PNG"> </p>
-<p><img src="/.io//Markdown\images\Mixamo011.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo010.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo011.PNG"> </p>
 <p>然后如果还想把小魔法师的动画也移植过去，可以先做骨骼重定向，</p>
-<p>例如 <img src="/.io//Markdown\images\Mixamo013.PNG"> <img src="/.io//Markdown\images\Mixamo014.PNG"> 从缩略图可以看到腿部是 <strong>有问题的</strong> </p>
+<p>例如 <img src="/2022/06/07/unreal-dev/Mixamo013.PNG"> <img src="/2022/06/07/unreal-dev/Mixamo014.PNG"> 从缩略图可以看到腿部是 <strong>有问题的</strong> </p>
 <p>实际在游戏中的表现，右腿出现了偏移。</p>
-<p><img src="/.io//Markdown\images\Mixamo015.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo015.PNG"> </p>
 <p>这里的解决方法应该需要用到 <a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/zh-CN/AnimatingObjects/SkeletalMeshAnimation/AnimationRetargeting/">动画重定位</a> (为了把动画重定位，其实修改的是骨骼树)</p>
-<p>在这个例子中我主要修改了 <img src="/.io//Markdown\images\Mixamo016.PNG"> </p>
+<p>在这个例子中我主要修改了 <img src="/2022/06/07/unreal-dev/Mixamo016.PNG"> </p>
 <p>这里其实是把第三人称模板的默认骨骼设置修改了</p>
 <p><strong>实际游戏中比之前下降了一点，但不够完美</strong></p>
-<p><img src="/.io//Markdown\images\Mixamo017.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/Mixamo017.PNG"> </p>
 <p>这部分的讲解视频可以参考<a target="_blank" rel="noopener" href="https://youtu.be/JkcJ5bjGPsg">官方油管</a> </p>
 </li>
 <li><p>Mixamo 重头戏来了</p>
@@ -349,24 +349,24 @@
 </ol>
 <p>用于交互的接口类 Interaction，实现Interaction接口的组件DialogComponent，玩家添加球型碰撞器InteractionSphere</p>
 <p>玩家与NPC碰撞时(将实现了Interaction接口的actor储存到数组中)&#x2F;离开时(移除数组元素)</p>
-<p><img src="/.io//Markdown\images\dialog001.PNG"> </p>
-<p><img src="/.io//Markdown\images\dialog002.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog001.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog002.PNG"> </p>
 <ol>
 <li>ThirdPersonCharacter</li>
 </ol>
 <p>当按下交互按键时，选择与玩家最近的NPC调用Interaction接口的函数OnInteraction()</p>
-<p><img src="/.io//Markdown\images\dialog003.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog003.PNG"> </p>
 <ol start="2">
 <li>DialogComponent</li>
 </ol>
 <p>响应接口的调用</p>
-<p><img src="/.io//Markdown\images\dialog004.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog004.PNG"> </p>
 <p>Create Widget, Add to Viewport, Set Input Mode UI Only</p>
 <ol start="3">
 <li>DialogComponent</li>
 </ol>
 <p>运行BehaviorTree, Blackboard</p>
-<p><img src="/.io//Markdown\images\dialog005.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog005.PNG"> </p>
 <ol start="4">
 <li>DialogTree</li>
 </ol>
@@ -375,67 +375,67 @@
 <ol start="5">
 <li>Speak</li>
 </ol>
-<p>执行任务 <img src="/.io//Markdown\images\dialog006.PNG"> </p>
+<p>执行任务 <img src="/2022/06/07/unreal-dev/dialog006.PNG"> </p>
 <p>以text为参数调用Speak事件(DialogWidget)</p>
-<p><img src="/.io//Markdown\images\dialog007.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog007.PNG"> </p>
 <ol start="6">
 <li>DialogWidget</li>
 </ol>
 <p>显示SpeakBox隐藏ReplyBox</p>
-<p><img src="/.io//Markdown\images\dialog008.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog008.PNG"> </p>
 <ol start="7">
 <li>DialogWidget</li>
 </ol>
 <p>鼠标按下后从NPC的话切换到玩家的话（SPEAK任务结束，进入下一个REPLY任务）</p>
-<p>函数OnMouseButtonDown <img src="/.io//Markdown\images\dialog009.PNG"> </p>
+<p>函数OnMouseButtonDown <img src="/2022/06/07/unreal-dev/dialog009.PNG"> </p>
 <ol start="8">
 <li>Speak</li>
 </ol>
 <p>由于Speak绑定了OnSpeakFinish事件， 结束任务，进入行为树序列的下一个任务</p>
-<p><img src="/.io//Markdown\images\dialog010.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog010.PNG"> </p>
 <ol start="9">
 <li>Reply</li>
 </ol>
-<p>任务开始执行 <img src="/.io//Markdown\images\dialog011.PNG"> </p>
-<p>传递reply text参数调用Reply事件 <img src="/.io//Markdown\images\dialog012.PNG"> </p>
+<p>任务开始执行 <img src="/2022/06/07/unreal-dev/dialog011.PNG"> </p>
+<p>传递reply text参数调用Reply事件 <img src="/2022/06/07/unreal-dev/dialog012.PNG"> </p>
 <ol start="10">
 <li>DialogWidget</li>
 </ol>
 <p>Reply事件把数组元素构建为对象，存入reply的对话列表中</p>
-<p><img src="/.io//Markdown\images\dialog013.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog013.PNG"> </p>
 <p>显示ReplyBox隐藏SpeakBox</p>
-<p><img src="/.io//Markdown\images\dialog014.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog014.PNG"> </p>
 <ol start="11">
 <li>DialogEntry_BP</li>
 </ol>
 <p>响应接口的调用，把行为树中的对话内容赋值给当前的widget</p>
-<p><img src="/.io//Markdown\images\dialog015.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog015.PNG"> </p>
 <ol start="12">
 <li>DialogEntry_BP</li>
 </ol>
 <p>reply被点击后，调用OnClicked事件（DialogReplyObject）</p>
-<p><img src="/.io//Markdown\images\dialog016.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog016.PNG"> </p>
 <ol start="13">
 <li>DialogWidget</li>
 </ol>
 <p>绑定了Onclicked事件，调用OnReplyFinished事件</p>
-<p><img src="/.io//Markdown\images\dialog017.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog017.PNG"> </p>
 <ol start="14">
 <li>Reply</li>
 </ol>
 <p>绑定了OnReplyFinish事件，任务结束，根据玩家选择的对话选项进入序列的下一个任务</p>
-<p><img src="/.io//Markdown\images\dialog018.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog018.PNG"> </p>
 <ol start="15">
 <li>Exit</li>
 </ol>
 <p>这里假设玩家对话选项选择完后，NPC再说一句话 然后触发结束任务</p>
-<p><img src="/.io//Markdown\images\dialog019.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/dialog019.PNG"> </p>
 <ol start="16">
 <li>DialogComponent</li>
 </ol>
 <p>绑定了OnExit事件，Set Input Mode Game Only, Stop Logic (Behavior Tree), Remove widget from Parent</p>
 <p>发现的问题：貌似教程里提到的一段节点没有用到？</p>
-<p>DialogWidget <img src="/.io//Markdown\images\dialog020.PNG"> </p>
+<p>DialogWidget <img src="/2022/06/07/unreal-dev/dialog020.PNG"> </p>
 <hr>
 <h4 id="可能会用到的插件"><a href="#可能会用到的插件" class="headerlink" title="可能会用到的插件"></a>可能会用到的插件</h4><ul>
 <li><p>Fade Objects：顾名思义是一个组件，可以改变第三人称游戏中相机和玩家之间的物体的材质实现透明的效果（本体是C++写的，但是感觉上比较简单，应该可以研究一下）</p>
@@ -483,7 +483,7 @@
 <hr>
 <h3 id="案例研究"><a href="#案例研究" class="headerlink" title="案例研究"></a>案例研究</h3><h4 id="ContentExample"><a href="#ContentExample" class="headerlink" title="ContentExample"></a>ContentExample</h4><p><strong>Geometry</strong></p>
 <p>1.2 依次把1 2 3的盒体笔刷排序到最后一项</p>
-<p><img src="/.io//Markdown\images\ContentExample001.PNG"> </p>
+<p><img src="/2022/06/07/unreal-dev/ContentExample001.PNG"> </p>
 <p>1.3 没懂有什么用</p>
 <p>1.6 非常巧妙的建模（应该用了大量的sub盒体）</p>
 <p><strong>FBX</strong> </p>
@@ -714,7 +714,7 @@
 <p>判断两个向量是否是垂直：点积(dot products) Vector3.Dot(VectorA,VectorB)</p>
 <p>求与两个向量垂直的向量：叉积(cross products) Vector3.Cross(VectorA,VectorB)</p>
 <p>unity采用左手坐标系</p>
-<img src="/.io//07/01/C-%E5%9F%BA%E7%A1%80/xyz.PNG" class>
+<img src="/2021/07/01/C-%E5%9F%BA%E7%A1%80/xyz.PNG" class>
 <ul>
 <li><p>类</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">//Inventory.cs 一个用于管理item的类</span><br><span class="line">public class Inventory : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //Stuff是Inventory的子类</span><br><span class="line">    public class Stuff</span><br><span class="line">    &#123;</span><br><span class="line">        //子类中的变量</span><br><span class="line">        public int projectileA;</span><br><span class="line">        public int projectileB;</span><br><span class="line">        public int projectileC;</span><br><span class="line">        public float fuel;</span><br><span class="line"></span><br><span class="line">        //构造函数</span><br><span class="line">        public Stuff(int prA, int prB, int prC)</span><br><span class="line">        &#123;</span><br><span class="line">            projectileA = prA;</span><br><span class="line">            projectileB = prB;</span><br><span class="line">            projectileC = prC;</span><br><span class="line">        &#125;</span><br><span class="line">        //构造函数</span><br><span class="line">        public Stuff(int prA, float fu)</span><br><span class="line">        &#123;</span><br><span class="line">            projectileA = prA;</span><br><span class="line">            fuel = fu;</span><br><span class="line">        &#125;</span><br><span class="line">        //使用构造函数创建类的实例</span><br><span class="line">        public Stuff myStuff = new Stuff(1,2,3);</span><br><span class="line">        public Stuff myOtherStuff = new Stuff(1, 5.0);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
