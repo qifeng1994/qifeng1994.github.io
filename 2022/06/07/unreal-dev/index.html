@@ -1,5 +1,277 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>unreal dev - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="我的第一个游戏开发日志2022&amp;#x2F;04&amp;#x2F;04制作第一个关卡：一个房间，包括一个落地窗，床，桌子，卫生间，门，如果可以的话加上一个窗帘 首先复习一下LightingShadow这个快速指南。然后用BSP Brash绘制房间的边界，再加入家具(需要参考油管bsp to mesh的视频) 2022&amp;#x2F;04&amp;#x2F;06重新建了一个level1，这次直接用mesh来搭房子，门框"><meta property="og:type" content="blog"><meta property="og:title" content="unreal dev"><meta property="og:url" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="我的第一个游戏开发日志2022&amp;#x2F;04&amp;#x2F;04制作第一个关卡：一个房间，包括一个落地窗，床，桌子，卫生间，门，如果可以的话加上一个窗帘 首先复习一下LightingShadow这个快速指南。然后用BSP Brash绘制房间的边界，再加入家具(需要参考油管bsp to mesh的视频) 2022&amp;#x2F;04&amp;#x2F;06重新建了一个level1，这次直接用mesh来搭房子，门框"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog002.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog003.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog004.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog005.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog006.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog007.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog008.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog009.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog010.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Camera002.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Camera001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/FirstPersonCamera001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/FirstPersonCamera002.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera002.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera004.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera005.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera003.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/XYZ001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/XYZ002.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/XYZ003.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/XYZ004.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Migrate001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Migrate002.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Migrate003.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Migrate004.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication002.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication003.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication004.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication005.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication006.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication007.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication008.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication009.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication010.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication011.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication012.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication013.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/BSP001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/BSP002.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo002.jpeg"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo003.jpeg"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo018.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo019.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo004.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo005.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo006.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo007.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo008.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo009.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo012.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo010.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo011.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo013.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo014.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo015.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo016.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo017.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog001.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog002.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog003.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog004.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog005.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog006.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog007.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog008.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog009.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog010.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog011.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog012.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog013.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog014.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog015.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog016.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog017.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog018.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog019.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog020.PNG"><meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ContentExample001.PNG"><meta property="article:published_time" content="2022-06-07T10:35:25.000Z"><meta property="article:modified_time" content="2022-06-07T12:00:37.609Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/2022/06/07/unreal-dev/devlog001.PNG"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://qifeng1994.github.io/2022/06/07/unreal-dev/"},"headline":"unreal dev","image":[],"datePublished":"2022-06-07T10:35:25.000Z","dateModified":"2022-06-07T12:00:37.609Z","author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://qifeng1994.github.io/img/logo.svg"}},"description":"我的第一个游戏开发日志2022&#x2F;04&#x2F;04制作第一个关卡：一个房间，包括一个落地窗，床，桌子，卫生间，门，如果可以的话加上一个窗帘 首先复习一下LightingShadow这个快速指南。然后用BSP Brash绘制房间的边界，再加入家具(需要参考油管bsp to mesh的视频) 2022&#x2F;04&#x2F;06重新建了一个level1，这次直接用mesh来搭房子，门框"}</script><link rel="canonical" href="https://qifeng1994.github.io/2022/06/07/unreal-dev/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-07T10:35:25.000Z" title="2022/6/7 下午7:35:25">2022-06-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-07T12:00:37.609Z" title="2022/6/7 下午9:00:37">2022-06-07</time></span><span class="level-item">an hour read (About 7632 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">unreal dev</h1><div class="content"><h3 id="我的第一个游戏开发日志"><a href="#我的第一个游戏开发日志" class="headerlink" title="我的第一个游戏开发日志"></a>我的第一个游戏开发日志</h3><h4 id="2022-x2F-04-x2F-04"><a href="#2022-x2F-04-x2F-04" class="headerlink" title="2022&#x2F;04&#x2F;04"></a>2022&#x2F;04&#x2F;04</h4><p>制作第一个关卡：一个房间，包括一个落地窗，床，桌子，卫生间，门，如果可以的话加上一个窗帘</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qifeng1994.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="我的第一个游戏开发日志2022&#x2F;04&#x2F;04制作第一个关卡：一个房间，包括一个落地窗，床，桌子，卫生间，门，如果可以的话加上一个窗帘 首先复习一下LightingShadow这个快速指南。然后用BSP Brash绘制房间的边界，再加入家具(需要参考油管bsp to mesh的视频) 2022&#x2F;04&#x2F;06重新建了一个level1，这次直接用mesh来搭房子，门框">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unreal dev">
+<meta property="og:url" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="我的第一个游戏开发日志2022&#x2F;04&#x2F;04制作第一个关卡：一个房间，包括一个落地窗，床，桌子，卫生间，门，如果可以的话加上一个窗帘 首先复习一下LightingShadow这个快速指南。然后用BSP Brash绘制房间的边界，再加入家具(需要参考油管bsp to mesh的视频) 2022&#x2F;04&#x2F;06重新建了一个level1，这次直接用mesh来搭房子，门框">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog002.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog003.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog004.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog005.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog006.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog007.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog008.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog009.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog010.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Camera002.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Camera001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/FirstPersonCamera001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/FirstPersonCamera002.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera002.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera004.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera005.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ThirdPersonCamera003.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/XYZ001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/XYZ002.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/XYZ003.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/XYZ004.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Migrate001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Migrate002.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Migrate003.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Migrate004.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication002.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication003.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication004.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication005.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication006.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication007.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication008.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication009.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication010.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication011.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication012.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ActorCommunication013.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/BSP001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/BSP002.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo002.jpeg">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo003.jpeg">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo018.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo019.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo004.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo005.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo006.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo007.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo008.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo009.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo012.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo010.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo011.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo013.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo014.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo015.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo016.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/Mixamo017.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog001.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog002.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog003.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog004.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog005.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog006.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog007.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog008.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog009.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog010.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog011.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog012.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog013.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog014.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog015.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog016.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog017.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog018.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog019.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/dialog020.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/ContentExample001.PNG">
+<meta property="article:published_time" content="2022-06-07T10:35:25.000Z">
+<meta property="article:modified_time" content="2022-06-07T14:09:40.403Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qifeng1994.github.io/2022/06/07/unreal-dev/devlog001.PNG">
+
+<link rel="canonical" href="https://qifeng1994.github.io/2022/06/07/unreal-dev/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>unreal dev | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2022/06/07/unreal-dev/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          unreal dev
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-06-07 19:35:25 / Modified: 23:09:40" itemprop="dateCreated datePublished" datetime="2022-06-07T19:35:25+09:00">2022-06-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="我的第一个游戏开发日志"><a href="#我的第一个游戏开发日志" class="headerlink" title="我的第一个游戏开发日志"></a><strong>我的第一个游戏开发日志</strong></h3><h4 id="2022-x2F-04-x2F-04"><a href="#2022-x2F-04-x2F-04" class="headerlink" title="2022&#x2F;04&#x2F;04"></a>2022&#x2F;04&#x2F;04</h4><p>制作第一个关卡：一个房间，包括一个落地窗，床，桌子，卫生间，门，如果可以的话加上一个窗帘</p>
 <p>首先复习一下LightingShadow这个快速指南。然后用BSP Brash绘制房间的边界，再加入家具(需要参考油管bsp to mesh的视频)</p>
 <h4 id="2022-x2F-04-x2F-06"><a href="#2022-x2F-04-x2F-06" class="headerlink" title="2022&#x2F;04&#x2F;06"></a>2022&#x2F;04&#x2F;06</h4><p>重新建了一个level1，这次直接用mesh来搭房子，门框和窗户框是通过BSP brush来做的，因为需要剔除门的空间。然后把brush生成mesh，再添加材质。</p>
 <p>测试遇到的问题</p>
@@ -541,48 +813,187 @@
 <p><strong>StaticMesh</strong></p>
 <p>1.3 为什么！！UV通道是什么东西</p>
 <h3 id="官方文档学习笔记"><a href="#官方文档学习笔记" class="headerlink" title="官方文档学习笔记"></a>官方文档学习笔记</h3><p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/zh-CN/RenderingAndGraphics/Materials/ExpressionReference/">材质节点的说明</a> </p>
-</div><div class="article-licensing box"><div class="licensing-title"><p>unreal dev</p><p><a href="https://qifeng1994.github.io/2022/06/07/unreal-dev/">https://qifeng1994.github.io/2022/06/07/unreal-dev/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>John Doe</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-06-07</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-06-07</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>Afdian.net</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/" alt="Alipay"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/06/07/cpp/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">cpp</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/08/26/hello-world/"><span class="level-item">Hello World</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/sadcat" alt="Qi Feng"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Qi Feng</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Saitama</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">16</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/qifeng1994"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-06-07T11:07:26.000Z">2022-06-07</time></p><p class="title"><a href="/2022/06/07/cpp/">cpp</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-06-07T10:35:25.000Z">2022-06-07</time></p><p class="title"><a href="/2022/06/07/unreal-dev/">unreal dev</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-08-26T12:21:46.011Z">2021-08-26</time></p><p class="title"><a href="/2021/08/26/hello-world/">Hello World</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-08-26T12:21:46.007Z">2021-08-26</time></p><p class="title"><a href="/2021/08/26/%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">用hexo搭建个人博客的过程记录</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-08-03T05:29:03.000Z">2021-08-03</time></p><p class="title"><a href="/2021/08/03/happy-things/">happy things</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">August 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">July 2021</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">June 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
-      window.cookieconsent.initialise({
-        type: "info",
-        theme: "edgeless",
-        static: false,
-        position: "bottom-left",
-        content: {
-          message: "This website uses cookies to improve your experience.",
-          dismiss: "Got it!",
-          allow: "Allow cookies",
-          deny: "Decline",
-          link: "Learn more",
-          policy: "Cookie Policy",
-          href: "https://www.cookiesandyou.com/",
-        },
-        palette: {
-          popup: {
-            background: "#edeff5",
-            text: "#838391"
-          },
-          button: {
-            background: "#4b81e8"
-          },
-        },
-      });
-    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
-        });</script></body></html>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/26/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/07/cpp/" rel="next" title="cpp">
+      cpp <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97"><span class="nav-number">1.</span> <span class="nav-text">我的第一个游戏开发日志</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2022-x2F-04-x2F-04"><span class="nav-number">1.1.</span> <span class="nav-text">2022&#x2F;04&#x2F;04</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2022-x2F-04-x2F-06"><span class="nav-number">1.2.</span> <span class="nav-text">2022&#x2F;04&#x2F;06</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2022-x2F-04-x2F-07"><span class="nav-number">1.3.</span> <span class="nav-text">2022&#x2F;04&#x2F;07</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2022-x2F-04-x2F-08"><span class="nav-number">1.4.</span> <span class="nav-text">2022&#x2F;04&#x2F;08</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2022-x2F-04-x2F-09"><span class="nav-number">1.5.</span> <span class="nav-text">2022&#x2F;04&#x2F;09</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2022-x2F-04-x2F-10"><span class="nav-number">1.6.</span> <span class="nav-text">2022&#x2F;04&#x2F;10</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2022-x2F-04-x2F-11"><span class="nav-number">1.7.</span> <span class="nav-text">2022&#x2F;04&#x2F;11</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2022-x2F-04-x2F-12"><span class="nav-number">1.8.</span> <span class="nav-text">2022&#x2F;04&#x2F;12</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">开发过程中的一些技术总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E7%8E%A9%E5%AE%B6%E6%91%84%E5%83%8F%E6%9C%BA%E9%95%9C%E5%A4%B4%E7%9A%84%E8%B0%83%E6%95%B4"><span class="nav-number">2.1.</span> <span class="nav-text">关于玩家摄像机镜头的调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%90%E6%A0%87%E7%B3%BB%E7%9B%B8%E5%85%B3%E7%9A%84%E6%80%BB%E7%BB%93"><span class="nav-number">2.2.</span> <span class="nav-text">坐标系相关的总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%93%9D%E5%9B%BE%E7%9A%84%E8%BF%81%E7%A7%BB"><span class="nav-number">2.3.</span> <span class="nav-text">关于蓝图的迁移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Actor%E9%80%9A%E4%BF%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">Actor通信的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%B6%E4%BD%9CUE%E6%8F%92%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">制作UE插件的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8BSP-Brush%E7%9A%84%E5%BF%83%E5%BE%97"><span class="nav-number">2.6.</span> <span class="nav-text">使用BSP Brush的心得</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">2.7.</span> <span class="nav-text">动画系统学习笔记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mixamo%E4%B8%8A%E7%9A%84%E8%B5%84%E6%BA%90%E5%A6%82%E4%BD%95%E7%94%A8%E5%88%B0UE4%E9%87%8C%E9%9D%A2"><span class="nav-number">2.8.</span> <span class="nav-text">Mixamo上的资源如何用到UE4里面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E7%9B%AE%E5%89%8D%E7%94%A8%E5%88%B0%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%92%E8%89%B2%E8%B5%84%E6%BA%90%E5%8C%85"><span class="nav-number">2.9.</span> <span class="nav-text">总结一下目前用到的几个角色资源包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%AF%9D%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.10.</span> <span class="nav-text">对话系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">2.11.</span> <span class="nav-text">可能会用到的插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%B8%AD%E8%BF%98%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.12.</span> <span class="nav-text">开发中还未解决的问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6"><span class="nav-number">3.</span> <span class="nav-text">案例研究</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ContentExample"><span class="nav-number">3.1.</span> <span class="nav-text">ContentExample</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text">官方文档学习笔记</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
