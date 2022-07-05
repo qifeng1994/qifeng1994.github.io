@@ -150,6 +150,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2021/07/02/how-to-make-2D-game/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Qi Feng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/02/how-to-make-2D-game/" class="post-title-link" itemprop="url">How to make a 2D Game</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-02 23:14:09" itemprop="dateCreated datePublished" datetime="2021-07-02T23:14:09+09:00">2021-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 00:23:00" itemprop="dateModified" datetime="2021-07-08T00:23:00+09:00">2021-07-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="2D-Movement-in-Unity"><a href="#2D-Movement-in-Unity" class="headerlink" title="2D Movement in Unity"></a>2D Movement in Unity</h2><p>&lt;关于2D碰撞的一些优化设置&gt;</p>
+<h3 id="Rigidbody2D-Collision-Detection"><a href="#Rigidbody2D-Collision-Detection" class="headerlink" title="Rigidbody2D-Collision Detection"></a>Rigidbody2D-Collision Detection</h3><ul>
+<li>Discrete</li>
+</ul>
+<p>GameObjects with Rigidbody 2Ds and Collider 2Ds can overlap or pass through each other during a physics update</p>
+<ul>
+<li>Continuous</li>
+</ul>
+<p>GameObjects with Rigidbody 2Ds and Collider 2Ds do not pass through each other during an update</p>
+<h3 id="Physics-Material-2D"><a href="#Physics-Material-2D" class="headerlink" title="Physics Material 2D"></a>Physics Material 2D</h3><ul>
+<li>Friction</li>
+<li>Bounciness</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// CharacterController2D.cs</span><br><span class="line"></span><br><span class="line">FixedUpdate()</span><br><span class="line">&#123;</span><br><span class="line">    判断角色是否落地：</span><br><span class="line">    在角色脚下新建一个EmptyObject, 通过Physics2D.OverlapCircleAll方法检测有什么跟角色的脚底发生了碰撞。</span><br><span class="line">    如果发生碰撞的不是gameObject, 那么认定角色在地面上。</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Move()</span><br><span class="line">&#123;</span><br><span class="line">    如果角色在蹲着，判断是否可以站起来：</span><br><span class="line">    </span><br><span class="line">    可以控制player的条件是：player在地面上或者允许player在空中移动</span><br><span class="line">    如果player在蹲着，那么降低移动速度</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Flip()</span><br><span class="line">&#123;</span><br><span class="line">    通过让palyer的localscale的X取负数来实现左右朝向的反转</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2021/07/02/unity-2D-jump/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -932,7 +1010,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
