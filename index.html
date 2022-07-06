@@ -150,6 +150,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2022/07/06/unreal-delegate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Qi Feng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/06/unreal-delegate/" class="post-title-link" itemprop="url">unreal delegate</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-06 19:39:14 / Modified: 23:21:15" itemprop="dateCreated datePublished" datetime="2022-07-06T19:39:14+09:00">2022-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unreal/" itemprop="url" rel="index"><span itemprop="name">unreal</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unreal/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>I still remember when I began to learn blueprint from the official document, actor communication can be realized by interface, cast-to or event dispatchers. According to the example, it will happen when player goes into a collision trigger, make the <strong>on actor begin overlap</strong> event in the blueprint to communicate with the player.</p>
+<p>However, in the cpp version, the event dispatchers is explained as the delegate. At that time, I didnt realize the example as there are too many parameters in the bind event. Now I found an use case with delegate which is also the unreal FPS project template. The delegate is used for the projectile. When the projectile hits other actors, it calls the custom event <strong>OnHit()</strong> . Lets take a look at the projectile source code.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AProjectile</span>:<span class="keyword">public</span> AActor</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UPROPERTY</span>()</span><br><span class="line">    USphereComponent* CollisionComp; <span class="comment">//U indicate this is a collision component rather than a mesh</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UFUNCTION</span>()</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">OnHit</span><span class="params">(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, <span class="type">const</span> FHitResult&amp; Hit)</span></span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">AProjectile::<span class="built_in">AProjectile</span>()</span><br><span class="line">&#123;</span><br><span class="line">    CollisionComp-&gt;OnComponentHit.<span class="built_in">AddDynamic</span>(<span class="keyword">this</span>, &amp;AFPSCPPProjectile::OnHit); <span class="comment">//seems like an event calls the custom function in the blueprint</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//not all the parameters are used, but the &quot;other actor&quot; and &quot;other component&quot; are the things that the projectile is hitting. If it has the physics feature, add an impulse depend on the projectile. the code is similiar to the blueprint event.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">AProjectile::OnHit</span><span class="params">(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, <span class="type">const</span> FHitResult&amp; Hit)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ((OtherActor != <span class="literal">nullptr</span>) &amp;&amp; (OtherActor != <span class="keyword">this</span>) &amp;&amp; (OtherComp != <span class="literal">nullptr</span>) &amp;&amp; OtherComp-&gt;<span class="built_in">IsSimulatingPhysics</span>())</span><br><span class="line">	&#123;</span><br><span class="line">		OtherComp-&gt;<span class="built_in">AddImpulseAtLocation</span>(<span class="built_in">GetVelocity</span>() * <span class="number">100.0f</span>, <span class="built_in">GetActorLocation</span>());</span><br><span class="line">		<span class="built_in">Destroy</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> Get into the engine source code.</p>
+<p>The reason why <strong>USphereComponent</strong> reference can point to the <strong>OnComponentHit</strong> is that <strong>OnComponentHit</strong> is a signature of <strong>UPrimitiveComponent</strong> , its also considered as a delegate name.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//PrimitiveComponent.h</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">UCLASS</span>()</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ENGINE_API</span> UPrimitiveComponent : <span class="keyword">public</span> USceneComponent, <span class="keyword">public</span> INavRelevantInterface</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UPROPERTY</span>(BlueprintAssignable, Category=<span class="string">&quot;Collision&quot;</span>)</span><br><span class="line">	FComponentHitSignature OnComponentHit; <span class="comment">//considered as an event which can be created in blueprint in the same name</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//long marco declaretion include parameters</span></span><br><span class="line"><span class="built_in">DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_FiveParams</span>( FComponentHitSignature, UPrimitiveComponent, OnComponentHit, UPrimitiveComponent*, HitComponent, AActor*, OtherActor, UPrimitiveComponent*, OtherComp, FVector, NormalImpulse, <span class="type">const</span> FHitResult&amp;, Hit );</span><br></pre></td></tr></table></figure>
+
+<p>How to bind a function to the delegate</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Delegate.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> AddDynamic( UserObject, FuncName )</span></span><br><span class="line"><span class="comment">//OnComponentHit.AddDynamic(this, &amp;AFPSCPPProjectile::OnHit) on the top</span></span><br></pre></td></tr></table></figure>
+
+<p>How to confirm the parameter in the custom function.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//SparseDelegate.h</span></span><br><span class="line"><span class="comment">//as we can see, in the projectile example, there are five parameters</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_FiveParams( SparseDelegateClass, OwningClass, DelegateName, Param1Type, Param1Name, Param2Type, Param2Name, Param3Type, Param3Name, Param4Type, Param4Name, Param5Type, Param5Name ) </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Above all is the summary of the projectile example.</p>
+<p>Go back to the actor communication example.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2022/07/05/UE-Programmer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1485,86 +1572,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2021/07/02/unity-study-timeline/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Qi Feng">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/02/unity-study-timeline/" class="post-title-link" itemprop="url">Unity_Timeline</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-02 23:56:04" itemprop="dateCreated datePublished" datetime="2021-07-02T23:56:04+09:00">2021-07-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-16 18:07:34" itemprop="dateModified" datetime="2021-08-16T18:07:34+09:00">2021-08-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="2021-06"><a href="#2021-06" class="headerlink" title="2021.06"></a>2021.06</h2><p>3D基础：Roll a Ball (siki学院)</p>
-<p>2D案例：坦克大战 (siki学院)，Ruby’s Adventure(unity官方), Pixel Adventure(像素忍者)</p>
-<h2 id="2021-07"><a href="#2021-07" class="headerlink" title="2021.07"></a>2021.07</h2><p>How to make a 2D Game (Brackeys)</p>
-<p>C# Intermediate Unity Tutorials (GameDevHQ) √</p>
-<p>C# 中级教程 (Unity官方)</p>
-<p>2D Game Kit (Unity Asset Store) (玩了一遍)</p>
-<p>图解算法数据结构(leetcode)</p>
-<p>初级算法(leetcode)</p>
-<p>先比较两边的代码，然后进行移植(2d movement&#x2F;animator √)</p>
-<p>How to make a Tower Defense Game (Brackeys 01-12)</p>
-<h2 id="2021-08"><a href="#2021-08" class="headerlink" title="2021.08"></a>2021.08</h2><p>How to make a Tower Defense Game (Brackeys 13-23)</p>
-<p>找一些中级C#教程看</p>
-<p>找一些中型项目的教程</p>
-<p>从8月开始，不再是跟着视频手把手的做，尽量做到看一遍视频，然后自己遍动脑，独立完成。</p>
-<p>C语言写的学生管理系统。</p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>How to make a Tower Defense Game (E08 SHOP) 1：19 关于pixel perfect的用法</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1634,7 +1641,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

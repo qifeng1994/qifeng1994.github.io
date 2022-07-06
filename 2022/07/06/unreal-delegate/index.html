@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"qifeng1994.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="This is a note for the video from Unreal Engine Youtube Channel called Being an Unreal Engine Programmer | Unreal Educator Livestream , which is almost 2 hours and sadly it is the only one video talk">
+  <meta name="description" content="I still remember when I began to learn blueprint from the official document, actor communication can be realized by interface, cast-to or event dispatchers. According to the example, it will happen wh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UE_Programmer">
-<meta property="og:url" content="https://qifeng1994.github.io/2022/07/05/UE-Programmer/index.html">
+<meta property="og:title" content="unreal delegate">
+<meta property="og:url" content="https://qifeng1994.github.io/2022/07/06/unreal-delegate/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="This is a note for the video from Unreal Engine Youtube Channel called Being an Unreal Engine Programmer | Unreal Educator Livestream , which is almost 2 hours and sadly it is the only one video talk">
+<meta property="og:description" content="I still remember when I began to learn blueprint from the official document, actor communication can be realized by interface, cast-to or event dispatchers. According to the example, it will happen wh">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-05T09:40:13.000Z">
-<meta property="article:modified_time" content="2022-07-05T12:54:06.383Z">
+<meta property="article:published_time" content="2022-07-06T10:39:14.000Z">
+<meta property="article:modified_time" content="2022-07-06T14:21:15.019Z">
 <meta property="article:author" content="Qi Feng">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://qifeng1994.github.io/2022/07/05/UE-Programmer/">
+<link rel="canonical" href="https://qifeng1994.github.io/2022/07/06/unreal-delegate/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>UE_Programmer | Hexo</title>
+  <title>unreal delegate | Hexo</title>
   
 
 
@@ -155,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2022/07/05/UE-Programmer/">
+    <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2022/07/06/unreal-delegate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -168,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          UE_Programmer
+          unreal delegate
         </h1>
 
         <div class="post-meta">
@@ -179,7 +179,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-05 18:40:13 / Modified: 21:54:06" itemprop="dateCreated datePublished" datetime="2022-07-05T18:40:13+09:00">2022-07-05</time>
+              <time title="Created: 2022-07-06 19:39:14 / Modified: 23:21:15" itemprop="dateCreated datePublished" datetime="2022-07-06T19:39:14+09:00">2022-07-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -188,6 +188,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/unreal/" itemprop="url" rel="index"><span itemprop="name">unreal</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unreal/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
                 </span>
             </span>
 
@@ -202,29 +206,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> This is a note for the video from Unreal Engine Youtube Channel called <a target="_blank" rel="noopener" href="https://youtu.be/PWc54yD9HwU">Being an Unreal Engine Programmer | Unreal Educator Livestream</a> , which is almost 2 hours and sadly it is the only one video talks about programmer in recently years.</p>
-<p>[09] あいさつ</p>
-<p>Mr. Kyle Langley</p>
-<p>[24] get source code from github, build solution by visual studio</p>
-<p>[31] install engine from epic, recommend install the “editor symbols for debugging” </p>
-<p>[34] create a blank project from visual studio</p>
-<p>[42] for unreal developers dont need to know about like garbage collecting or other computer science</p>
-<p>[44] using “visual assist” to help coding easier</p>
-<p>[47] blueprint is a good start for use unreal without computer science education</p>
-<p>Mr. Jeff Farris</p>
-<p>[55] epic teams develop engine and game at same time to make products better with many other game developers</p>
-<p>[1:04] as an engine developer, the customer is other developer</p>
-<p>[1:06] unreal is separated into many parts, even fortnight didnt use light baking. so unreal is used broadly like umbrella</p>
-<p>[1:13] audio is also important in game development. “be a T shape person”</p>
-<p>[1:16] generalist is awesome and helpful is a team with quickly respond</p>
-<p> Mr. David Hill</p>
-<p>[1:24] how to define a game engine, including lots of tools used for different function.</p>
-<p>[1:29] what is a tool in unreal</p>
-<p>[1:32] an example about tools change LOD to reduce the triangle</p>
-<p> [1:44] dont be afraid of make mistakes, the industry is changing</p>
-<p>QA</p>
-<p>[1:47] why use so many c++ code. seems that Rust is going to be popular</p>
-<p>Also thanks Mr. Mark Flanagan.</p>
+        <p>I still remember when I began to learn blueprint from the official document, actor communication can be realized by interface, cast-to or event dispatchers. According to the example, it will happen when player goes into a collision trigger, make the <strong>on actor begin overlap</strong> event in the blueprint to communicate with the player.</p>
+<p>However, in the cpp version, the event dispatchers is explained as the delegate. At that time, I didnt realize the example as there are too many parameters in the bind event. Now I found an use case with delegate which is also the unreal FPS project template. The delegate is used for the projectile. When the projectile hits other actors, it calls the custom event <strong>OnHit()</strong> . Lets take a look at the projectile source code.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AProjectile</span>:<span class="keyword">public</span> AActor</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UPROPERTY</span>()</span><br><span class="line">    USphereComponent* CollisionComp; <span class="comment">//U indicate this is a collision component rather than a mesh</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UFUNCTION</span>()</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">OnHit</span><span class="params">(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, <span class="type">const</span> FHitResult&amp; Hit)</span></span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">AProjectile::<span class="built_in">AProjectile</span>()</span><br><span class="line">&#123;</span><br><span class="line">    CollisionComp-&gt;OnComponentHit.<span class="built_in">AddDynamic</span>(<span class="keyword">this</span>, &amp;AFPSCPPProjectile::OnHit); <span class="comment">//seems like an event calls the custom function in the blueprint</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//not all the parameters are used, but the &quot;other actor&quot; and &quot;other component&quot; are the things that the projectile is hitting. If it has the physics feature, add an impulse depend on the projectile. the code is similiar to the blueprint event.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">AProjectile::OnHit</span><span class="params">(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, <span class="type">const</span> FHitResult&amp; Hit)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ((OtherActor != <span class="literal">nullptr</span>) &amp;&amp; (OtherActor != <span class="keyword">this</span>) &amp;&amp; (OtherComp != <span class="literal">nullptr</span>) &amp;&amp; OtherComp-&gt;<span class="built_in">IsSimulatingPhysics</span>())</span><br><span class="line">	&#123;</span><br><span class="line">		OtherComp-&gt;<span class="built_in">AddImpulseAtLocation</span>(<span class="built_in">GetVelocity</span>() * <span class="number">100.0f</span>, <span class="built_in">GetActorLocation</span>());</span><br><span class="line">		<span class="built_in">Destroy</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> Get into the engine source code.</p>
+<p>The reason why <strong>USphereComponent</strong> reference can point to the <strong>OnComponentHit</strong> is that <strong>OnComponentHit</strong> is a signature of <strong>UPrimitiveComponent</strong> , its also considered as a delegate name.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//PrimitiveComponent.h</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">UCLASS</span>()</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ENGINE_API</span> UPrimitiveComponent : <span class="keyword">public</span> USceneComponent, <span class="keyword">public</span> INavRelevantInterface</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UPROPERTY</span>(BlueprintAssignable, Category=<span class="string">&quot;Collision&quot;</span>)</span><br><span class="line">	FComponentHitSignature OnComponentHit; <span class="comment">//considered as an event which can be created in blueprint in the same name</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//long marco declaretion include parameters</span></span><br><span class="line"><span class="built_in">DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_FiveParams</span>( FComponentHitSignature, UPrimitiveComponent, OnComponentHit, UPrimitiveComponent*, HitComponent, AActor*, OtherActor, UPrimitiveComponent*, OtherComp, FVector, NormalImpulse, <span class="type">const</span> FHitResult&amp;, Hit );</span><br></pre></td></tr></table></figure>
+
+<p>How to bind a function to the delegate</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Delegate.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> AddDynamic( UserObject, FuncName )</span></span><br><span class="line"><span class="comment">//OnComponentHit.AddDynamic(this, &amp;AFPSCPPProjectile::OnHit) on the top</span></span><br></pre></td></tr></table></figure>
+
+<p>How to confirm the parameter in the custom function.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//SparseDelegate.h</span></span><br><span class="line"><span class="comment">//as we can see, in the projectile example, there are five parameters</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_FiveParams( SparseDelegateClass, OwningClass, DelegateName, Param1Type, Param1Name, Param2Type, Param2Name, Param3Type, Param3Name, Param4Type, Param4Name, Param5Type, Param5Name ) </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Above all is the summary of the projectile example.</p>
+<p>Go back to the actor communication example.</p>
 
     </div>
 
@@ -240,13 +237,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/06/09/unreal-src/" rel="prev" title="unreal src">
-      <i class="fa fa-chevron-left"></i> unreal src
+    <a href="/2022/07/05/UE-Programmer/" rel="prev" title="UE_Programmer">
+      <i class="fa fa-chevron-left"></i> UE_Programmer
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/07/06/unreal-delegate/" rel="next" title="unreal delegate">
-      unreal delegate <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
