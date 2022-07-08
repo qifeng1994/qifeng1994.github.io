@@ -27,10 +27,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="I still remember when I began to learn blueprint from the official document, actor communication can be realized by interface, cast-to or event dispatchers. According to the example, it will happen wh">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/07/06/unreal-delegate/hit.PNG">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/07/06/unreal-delegate/onhit.PNG">
 <meta property="article:published_time" content="2022-07-06T10:39:14.000Z">
-<meta property="article:modified_time" content="2022-07-06T14:21:15.019Z">
+<meta property="article:modified_time" content="2022-07-08T15:19:21.628Z">
 <meta property="article:author" content="Qi Feng">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qifeng1994.github.io/2022/07/06/unreal-delegate/hit.PNG">
 
 <link rel="canonical" href="https://qifeng1994.github.io/2022/07/06/unreal-delegate/">
 
@@ -177,10 +180,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-06 19:39:14 / Modified: 23:21:15" itemprop="dateCreated datePublished" datetime="2022-07-06T19:39:14+09:00">2022-07-06</time>
+              <time title="Created: 2022-07-06 19:39:14" itemprop="dateCreated datePublished" datetime="2022-07-06T19:39:14+09:00">2022-07-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-09 00:19:21" itemprop="dateModified" datetime="2022-07-09T00:19:21+09:00">2022-07-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -220,8 +229,24 @@
 <p>How to confirm the parameter in the custom function.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//SparseDelegate.h</span></span><br><span class="line"><span class="comment">//as we can see, in the projectile example, there are five parameters</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_FiveParams( SparseDelegateClass, OwningClass, DelegateName, Param1Type, Param1Name, Param2Type, Param2Name, Param3Type, Param3Name, Param4Type, Param4Name, Param5Type, Param5Name ) </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<p>By the way, in the FPS blueprint template, event <strong>Hit</strong> is used to add impluse. The target of <strong>Hit</strong> is actor itself.</p>
+<p><img src="/2022/07/06/unreal-delegate/hit.PNG"></p>
+<p>While in the cpp version, <strong>OnComponentHit</strong> is used which target is sphere collision. And it is actually including 5 parameters as we saw in the source code.</p>
+<p><img src="/2022/07/06/unreal-delegate/onhit.PNG"></p>
 <p>Above all is the summary of the projectile example.</p>
 <p>Go back to the actor communication example.</p>
+<p>I create the first actor including a box collision and a delegate.  </p>
+<p>The second actor bind the delegate. </p>
+<p>When player overlap with the first box collision, delegate is active, and the second actor log a message.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//first actor</span></span><br><span class="line"><span class="built_in">DECLARE_DELEGATE</span>(FCustomDelegate);</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ATriggerActor</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">UBoxComponent</span>* BoxComp;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">NotifyActorBeginOverlap</span><span class="params">(AActor* OtherActor)</span></span>&#123; IntoTrigger.<span class="built_in">ExecuteIfBound</span>(); &#125;</span><br><span class="line">    FCustomDelegate IntoTrigger;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//second actor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AReactActor</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">ATriggerActor</span>* TriggerActorReference;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">GetIntoTrigger</span><span class="params">()</span></span>&#123; <span class="built_in">UE_LOG</span>(LogTemp, Log, <span class="built_in">TEXT</span>(<span class="string">&quot;get into the trigger&quot;</span>)); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">AReactActor::BeginPlay</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Super::<span class="built_in">BeginPlay</span>();</span><br><span class="line">	TriggerActorReference-&gt;IntoTrigger.<span class="built_in">BindUObject</span>(<span class="keyword">this</span>, &amp;AReactActor::GetIntoTrigger);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>As for why using <strong>BindUObject</strong> to bind a function to the delegate. </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//DelegateSignatureImpl.inl</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TDelegate</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//function that creates kinds of delegate UE_NODISCARD</span></span><br><span class="line">    <span class="comment">//constructor, destructor, and operator override</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//function that binds a delegate</span></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> UserClass, <span class="keyword">typename</span>... VarTypes&gt;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">BindUObject</span><span class="params">(<span class="type">const</span> UserClass* InUserObject, <span class="keyword">typename</span> TMemFunPtrType&lt;<span class="literal">true</span>, UserClass, RetValType (ParamTypes..., VarTypes...)&gt;::Type InFunc, VarTypes... Vars)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		*<span class="keyword">this</span> = <span class="built_in">CreateUObject</span>(InUserObject, InFunc, Vars...);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>I try to replace <strong>BindUObject</strong> to <strong>CreateUObject</strong> , due to the UE_NODISCARD which build errors. </p>
+<p>nodiscard is an attribute from cpp17 which seems to far for me……sad</p>
 
     </div>
 
