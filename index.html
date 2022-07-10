@@ -150,6 +150,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2022/07/10/unreal-inventory-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Qi Feng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/10/unreal-inventory-system/" class="post-title-link" itemprop="url">unreal inventory system</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-10 21:51:28 / Modified: 23:19:26" itemprop="dateCreated datePublished" datetime="2022-07-10T21:51:28+09:00">2022-07-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unreal/" itemprop="url" rel="index"><span itemprop="name">unreal</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unreal/blueprint/" itemprop="url" rel="index"><span itemprop="name">blueprint</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>When talking about story advantage game, Inventory system is simple, because there arent so many items to use or craft. While in RPG game, inventory system should be designed carefully. There are some features which I could imagine.</p>
+<ul>
+<li>Pick up items. (food, wood, guns, bullet, quest items)</li>
+<li>Use items. (food heal health, wood build house)</li>
+<li>Drop items.</li>
+<li>Craft items. (like minecraft)</li>
+</ul>
+<p>As for the design of the UI, minecraft, PUBG, and Resident Evil are the typical typies.</p>
+<p>I have searched several  inventory system examples, and make a summary in this page.</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://youtu.be/-WNwo-riV1Y">A simple inventory can use items written in cpp</a> </p>
+<p><img src="/2022/07/10/unreal-inventory-system/SimpleInventory.png"></p>
+<p>I think the system could be improved, such as change the OnUse function from Items Class to InventoryComponent.</p>
+</li>
+<li><p>Inventory System realize the minecraft function.</p>
+</li>
+</ol>
+<p>​	This a free template which could be found in marketplace, called <strong>Inventory System</strong>. I think this system is inspired by minecraft, because the item can be picked up when player close to the item. It also has a hotbar which player can use items like eating apples. Crafting function and simple chest are also in the template. Oh, and the item can be dropped down just like minecraft cube rotating automatically. The system is almost complete.</p>
+<p><img src="/2022/07/10/unreal-inventory-system/MCInventorySystem.png"></p>
+<p>Items are create in struct, inventory component controls the save&#x2F;load of items, initial of user widget, operator function of items.</p>
+<p>However, I found there are issues when the inventory is initialized.</p>
+<p>The explanation and solution will be update very soon.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2022/07/06/unreal-delegate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1503,101 +1596,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2021/07/08/DataStructure/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Qi Feng">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/08/DataStructure/" class="post-title-link" itemprop="url">数据结构与算法笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-07-08 19:12:00 / Modified: 21:45:06" itemprop="dateCreated datePublished" datetime="2021-07-08T19:12:00+09:00">2021-07-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="数据结构简介"><a href="#数据结构简介" class="headerlink" title="数据结构简介"></a>数据结构简介</h3><p>笔记内容参考leetcode</p>
-<ul>
-<li>数组</li>
-<li>链表</li>
-<li>栈：先入后出的抽象数据结构，可以使用数组或链表实现</li>
-<li>队列：先入先出的抽象数据结构，可以使用链表实现</li>
-<li>树</li>
-<li>图：分为有向图和无向图</li>
-</ul>
-<p>表示图的方法包括：邻接矩阵，邻接表</p>
-<ul>
-<li>散列表：散列表是一种非线性数据结构，通过利用 Hash 函数将指定的「键 key」映射至对应的「值 value」，以实现高效的元素查找。</li>
-<li>堆：堆是一种基于「完全二叉树」的数据结构，可使用数组实现。以堆为原理的排序算法称为「堆排序」，基于堆实现的数据结构为「优先队列」。堆分为「大顶堆」和「小顶堆」，大（小）顶堆：任意节点的值不大于（小于）其父节点的值。</li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li>动态规划</li>
-</ul>
-<ol>
-<li>斐波那契数列：递归法，记忆化递归法，动态规划法</li>
-</ol>
-<p>通过让两个整数交替变化</p>
-<p>2. </p>
-<ul>
-<li>未解决的问题</li>
-</ul>
-<ol>
-<li>断点调试程序的方法</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1663,7 +1665,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

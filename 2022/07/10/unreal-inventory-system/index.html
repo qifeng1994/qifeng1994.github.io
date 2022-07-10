@@ -20,15 +20,22 @@
     var CONFIG = {"hostname":"qifeng1994.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://qifeng1994.github.io/archives/2021/07/index.html">
+  <meta name="description" content="When talking about story advantage game, Inventory system is simple, because there arent so many items to use or craft. While in RPG game, inventory system should be designed carefully. There are some">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unreal inventory system">
+<meta property="og:url" content="https://qifeng1994.github.io/2022/07/10/unreal-inventory-system/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="When talking about story advantage game, Inventory system is simple, because there arent so many items to use or craft. While in RPG game, inventory system should be designed carefully. There are some">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/07/10/unreal-inventory-system/SimpleInventory.png">
+<meta property="og:image" content="https://qifeng1994.github.io/2022/07/10/unreal-inventory-system/MCInventorySystem.png">
+<meta property="article:published_time" content="2022-07-10T12:51:28.000Z">
+<meta property="article:modified_time" content="2022-07-10T14:19:26.058Z">
 <meta property="article:author" content="Qi Feng">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qifeng1994.github.io/2022/07/10/unreal-inventory-system/SimpleInventory.png">
 
-<link rel="canonical" href="https://qifeng1994.github.io/archives/2021/07/">
+<link rel="canonical" href="https://qifeng1994.github.io/2022/07/10/unreal-inventory-system/">
 
 
 <script id="page-configurations">
@@ -36,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Hexo</title>
+  <title>unreal inventory system | Hexo</title>
   
 
 
@@ -144,130 +151,111 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 21 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://qifeng1994.github.io/2022/07/10/unreal-inventory-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Qi Feng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          unreal inventory system
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-10 21:51:28 / Modified: 23:19:26" itemprop="dateCreated datePublished" datetime="2022-07-10T21:51:28+09:00">2022-07-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unreal/" itemprop="url" rel="index"><span itemprop="name">unreal</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unreal/blueprint/" itemprop="url" rel="index"><span itemprop="name">blueprint</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-08T19:12:00+09:00"
-              content="2021-07-08">
-          07-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/08/DataStructure/" itemprop="url">
-            <span itemprop="name">数据结构与算法笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-02T23:56:04+09:00"
-              content="2021-07-02">
-          07-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/02/unity-study-timeline/" itemprop="url">
-            <span itemprop="name">Unity_Timeline</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-02T23:14:09+09:00"
-              content="2021-07-02">
-          07-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/02/how-to-make-2D-game/" itemprop="url">
-            <span itemprop="name">How to make a 2D Game</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-02T08:35:31+09:00"
-              content="2021-07-02">
-          07-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/02/unity-2D-jump/" itemprop="url">
-            <span itemprop="name">Unity_2D_Jump</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-01T14:27:22+09:00"
-              content="2021-07-01">
-          07-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/01/C-%E5%9F%BA%E7%A1%80/" itemprop="url">
-            <span itemprop="name">C#基礎</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p>When talking about story advantage game, Inventory system is simple, because there arent so many items to use or craft. While in RPG game, inventory system should be designed carefully. There are some features which I could imagine.</p>
+<ul>
+<li>Pick up items. (food, wood, guns, bullet, quest items)</li>
+<li>Use items. (food heal health, wood build house)</li>
+<li>Drop items.</li>
+<li>Craft items. (like minecraft)</li>
+</ul>
+<p>As for the design of the UI, minecraft, PUBG, and Resident Evil are the typical typies.</p>
+<p>I have searched several  inventory system examples, and make a summary in this page.</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://youtu.be/-WNwo-riV1Y">A simple inventory can use items written in cpp</a> </p>
+<p><img src="/2022/07/10/unreal-inventory-system/SimpleInventory.png"></p>
+<p>I think the system could be improved, such as change the OnUse function from Items Class to InventoryComponent.</p>
+</li>
+<li><p>Inventory System realize the minecraft function.</p>
+</li>
+</ol>
+<p>​	This a free template which could be found in marketplace, called <strong>Inventory System</strong>. I think this system is inspired by minecraft, because the item can be picked up when player close to the item. It also has a hotbar which player can use items like eating apples. Crafting function and simple chest are also in the template. Oh, and the item can be dropped down just like minecraft cube rotating automatically. The system is almost complete.</p>
+<p><img src="/2022/07/10/unreal-inventory-system/MCInventorySystem.png"></p>
+<p>Items are create in struct, inventory component controls the save&#x2F;load of items, initial of user widget, operator function of items.</p>
+<p>However, I found there are issues when the inventory is initialized.</p>
+<p>The explanation and solution will be update very soon.</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/06/unreal-delegate/" rel="prev" title="unreal delegate">
+      <i class="fa fa-chevron-left"></i> unreal delegate
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
