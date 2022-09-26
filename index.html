@@ -181,7 +181,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-09-21 15:24:16" itemprop="dateModified" datetime="2022-09-21T15:24:16+09:00">2022-09-21</time>
+                <time title="Modified: 2022-09-26 09:16:11" itemprop="dateModified" datetime="2022-09-26T09:16:11+09:00">2022-09-26</time>
               </span>
 
           
@@ -230,6 +230,60 @@
 </ol>
 <ul>
 <li>由于mysql server启动后是在终端输入命令，可以安装navicat的图形化软件（收费）</li>
+</ul>
+<ol start="6">
+<li>JDBC：是利用JAVA操作数据库的API，定义了操作数据库的接口。而诸如mysql这样的数据库软件实现了这些接口并把这些实现打包成驱动（也就是jar包）基础流程包括</li>
+</ol>
+<ul>
+<li>在IDEA的项目中导入jar包，注册驱动，连接数据库，定义SQL语句，获取数据库对象，执行语句，释放数据库对象，释放数据库系统</li>
+</ul>
+<ol start="7">
+<li>Maven：用于构建和管理JAVA项目的工具，IDEA已经集成了。目的是让JAVA项目能在不同的IDE中运行。</li>
+</ol>
+<ul>
+<li>坐标：用于标识jar包和当前项目，包括groupId,artifactId,version</li>
+</ul>
+<ol start="8">
+<li>MyBatis：在开发持久性框架中，可以简化JDBC的开发</li>
+</ol>
+<ul>
+<li>如果想在Maven中使用，可以在pom.xml中添加坐标</li>
+</ul>
+<ol start="9">
+<li>TomCat：服务器软件，相当于是把用JAVA手写的建立服务器等对HTTP协议操作的代码给封装了</li>
+</ol>
+<ul>
+<li>由于我下载的是解压缩版，需要配置环境变量，包括变量名CATALINA_HOME（TomCat根目录），JAVA_HOME（JDK的跟目录），JRE_HOME</li>
+<li>如果日志有乱码，修改conf\logging.properties的java.util.logging.ConsoleHandler.encoding &#x3D; GBK（原本是UTF-8）</li>
+<li>自己做的项目放到\webapps目录下</li>
+<li>可以在IDEA项目中添加然后启动</li>
+</ul>
+<ol start="10">
+<li>JSP：一种动态网页技术，.jsp中可以写html也可以写java代码</li>
+</ol>
+<ul>
+<li>应用场景：一个有登录功能的网页，用户登录后网页显示用户名</li>
+<li>比Servlet使用更简单</li>
+</ul>
+<ol start="11">
+<li>MVC：一种软件架构，可以解决jsp代码混乱的问题</li>
+</ol>
+<ul>
+<li>Model：我理解就是数据模型，一个类然后里面有成员和set&#x2F;get方法，比如JavaBean</li>
+<li>View：用户可以看到的部分，比如html jsp</li>
+<li>Controller：用于处理事件并做出响应，比如servlet</li>
+</ul>
+<ol start="12">
+<li>Vue：用于简化javascript中DOM操作的前端框架</li>
+<li>SpringBoot：</li>
+<li>Rest：访问资源的风格，</li>
+<li>IoC(infrastructure as code)：</li>
+<li>EC2(Elastic Compute Cloud 弹性云计算)&#x2F;RDS(Relational Database Service 云数据库)</li>
+</ol>
+<ul>
+<li>RDS可以简化在云中设置、运营和扩展数据库的过程。兼容MySQL等引擎。</li>
+<li>RDSはクラウド内でデータベースのセットアップ、運用、およびスケールを簡単に行うことのできるサービスです。MySQL,SQL Serverなどのエンジンをサポートしています。</li>
+<li>EC2让用户可以租用云端电脑运行所需应用的系统，用户将可以在这个虚拟机上运行任何自己想要的软件或应用程序。</li>
 </ul>
 
       
